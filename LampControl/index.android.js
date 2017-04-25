@@ -4,17 +4,10 @@
  * @flow
  */
 
-import React, {
+import {
   AppRegistry,
-  Component,
 } from 'react-native';
 
 import Main from './js/page/main';
 
-class LampControl extends Component {
-  render() {
-    return (<Main />);
-  }
-}
-
-AppRegistry.registerComponent('LampControl', () => LampControl);
+AppRegistry.registerComponent('LampControl', () => Main);
