@@ -8,6 +8,6 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import Main from './js/page/main';
+import setup from './js/setup';
 
-AppRegistry.registerComponent('LampControl', () => Main);
+AppRegistry.registerComponent('LampControl', () => setup);
