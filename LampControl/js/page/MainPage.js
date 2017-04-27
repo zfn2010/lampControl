@@ -161,7 +161,6 @@ export default class MainPage extends Component {
           <View style={{flex:1,paddingLeft:2}}>
             <BigButton style={{flex:2, backgroundColor:'#E91E63'}}
               text= {'路灯地图'} 
-              icon = {require('../../res/images/map.png')} 
               iconName = 'ios-map-outline'
               iconSize = {40}
               onPress = {this._goLampMap.bind(this)}
@@ -170,7 +169,6 @@ export default class MainPage extends Component {
             <BigButton style={{flex:1, backgroundColor:'#F44336'}}
                 text= {'故障查询'} 
                 direction = 'row'
-                icon = {require('../../res/images/problem.png')} 
                 iconName = 'ios-alert-outline'
                 iconSize = {30}
                 onPress = {this._goProblemSearchPage.bind(this)}/>
@@ -179,8 +177,7 @@ export default class MainPage extends Component {
                 text= {'参数设置'} 
                 direction = 'row'
                 iconName = 'ios-settings-outline'
-                iconSize = {30}
-                icon = {require('../../res/images/settings.png')} 
+                iconSize = {30} 
                 onPress = {this._goSettingPage.bind(this)}
             />
           </View>
@@ -190,18 +187,15 @@ export default class MainPage extends Component {
               text= {'单灯控制'} 
               direction = 'row'
               iconName = 'ios-bulb-outline'
-              iconSize = {30}
-              icon = {require('../../res/images/light.png')} />
+              iconSize = {30} />
 
             <BigButton style={{flex:2, backgroundColor:'#2196F3'}}
               text= {'终端控制'} 
-              icon = {require('../../res/images/control.png')} 
               iconName = 'ios-options-outline'
               iconSize = {40}
             />
             <BigButton style={{flex:2, backgroundColor:'#FF9800'}}
               text= {'运行状态'} 
-              icon = {require('../../res/images/search.png')} 
               iconName = 'ios-glasses-outline'
               iconSize = {40}
               />

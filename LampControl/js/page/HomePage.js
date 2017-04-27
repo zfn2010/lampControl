@@ -14,6 +14,8 @@ import MainPage from './MainPage';
 import DevicePage from './DevicePage';
 import SettingPage from './SettingPage';
 import MyPage from './MyPage';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 export const FLAG_TAB = {
   flag_mainTab: 'flag_mainTab',
@@ -38,7 +40,7 @@ export default class HomePage extends Component {
   }
 
   onThemeChange(theme) {
-    if(!theme) return;
+    if (!theme) return;
     this.setState({
       theme: theme,
 
@@ -46,32 +48,29 @@ export default class HomePage extends Component {
 
   }
 
-    _renderTab(Component, selectedTab, title, renderIcon) {
-        return (
-            <TabNavigator.Item
-                selected={this.state.selectedTab === selectedTab}
-                title={title}
-                selectedTitleStyle={this.state.theme.styles.selectedTitleStyle}
-                renderIcon={() => <Image style={styles.tabBarIcon}
-                                         source={renderIcon}/>}
-                renderSelectedIcon={() => <Image
-                    style={[styles.tabBarSelectedIcon, this.state.theme.styles.tabBarSelectedIcon]}
-                    source={renderIcon}/>}
-                onPress={() => this.onSelected(selectedTab)}>
-                <Component {...this.props} theme={this.state.theme} homeComponent={this}/>
-            </TabNavigator.Item>
-        );
-    }
+  _renderTab(Component, selectedTab, title, iconName) {
+    return (
+      <TabNavigator.Item
+        selected={this.state.selectedTab === selectedTab}
+        title={title}
+        selectedTitleStyle={this.state.theme.styles.selectedTitleStyle}
+        renderIcon={() => <Icon name={iconName} size={25} color='black'/>}
+        renderSelectedIcon={() => <Icon name={iconName} size={25} color='#F44336'/>}
+        onPress={() => this.onSelected(selectedTab)}>
+        <Component {...this.props} theme={this.state.theme} homeComponent={this} />
+      </TabNavigator.Item>
+    );
+  }
 
   render() {
     return (
       <View style={styles.container}>
-          <TabNavigator>
-            {this._renderTab(MainPage, FLAG_TAB.flag_mainTab, '主页', require('../image/home.png'))}
-            {this._renderTab(DevicePage, FLAG_TAB.flag_deviceTab, '设备', require('../image/device.png'))}
-             {this._renderTab(SettingPage, FLAG_TAB.flag_settingTab, '设置', require('../image/settings.png'))} 
-            {this._renderTab(MyPage, FLAG_TAB.flag_myTab, '我', require('../image/ic_my.png'))} 
-          </TabNavigator>
+        <TabNavigator>
+          {this._renderTab(MainPage, FLAG_TAB.flag_mainTab, '主页', 'ios-home-outline')}
+          {this._renderTab(DevicePage, FLAG_TAB.flag_deviceTab, '设备', 'ios-laptop-outline')}
+          {this._renderTab(SettingPage, FLAG_TAB.flag_settingTab, '设置', 'ios-settings-outline')}
+          {this._renderTab(MyPage, FLAG_TAB.flag_myTab, '我', 'ios-contact-outline')}
+        </TabNavigator>
       </View>
     );
   }
